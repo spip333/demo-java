@@ -2,6 +2,12 @@ package org.nstern.demos.dto;
 
 public class Book {
 
+    private BookType bookType;
+    private String title;
+    private String author;
+    private String isbn;
+    private float price;
+
     public BookType getBookType() {
         return bookType;
     }
@@ -41,12 +47,6 @@ public class Book {
     public void setPrice(float price) {
         this.price = price;
     }
-
-    private BookType bookType;
-    private String title;
-    private String author;
-    private String isbn;
-    private float price;
 
     public static class BookBuilder {
 

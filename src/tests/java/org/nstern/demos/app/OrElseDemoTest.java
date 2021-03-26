@@ -35,4 +35,19 @@ class OrElseDemoTest {
         assertThrows(DemoBusinessException.class, ()->sut.changePrice(item, increment));
     }
 
+    @Test
+    void changePriceWithOrElse_should_increment_price(){
+        // given
+        Item item = new Item.ItemBuilder().withName("test").withPrice(10).build();
+        int increment  = 10;
+
+        // when
+        Item result = sut.changePriceWithOrElse(item, increment);
+
+        // then
+        assertEquals(20, result.getPrice());
+    }
+
+
+
 }

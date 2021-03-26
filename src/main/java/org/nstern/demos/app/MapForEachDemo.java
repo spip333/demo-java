@@ -5,13 +5,18 @@ import java.util.Map;
 
 import org.nstern.demos.dto.Book;
 import org.nstern.demos.dto.BookType;
+import org.nstern.demos.dto.Item;
+import org.nstern.demos.dto.ItemType;
 
 public class MapForEachDemo {
 
     public static void main(String[] args) {
 
         iterateMapUsingLambda();
+        System.out.println("--------");
         iterateMapUsingStream();
+        System.out.println("--------");
+        justIterate();
     }
 
     private static void iterateMapUsingLambda() {
@@ -32,6 +37,19 @@ public class MapForEachDemo {
         Map<BookType, String> newMap = new HashMap<>();
 
         map.entrySet().stream().forEach(entry -> newMap.put(entry.getKey(), entry.getValue().getTitle()));
+
+        System.out.println(newMap);
+    }
+
+    private static void justIterate() {
+        Map<BookType, Book> map = createMap();
+
+        Map<BookType, Item> newMap = new HashMap<>();
+
+        map.entrySet().stream().forEach(entry -> {
+            Item item = new Item.ItemBuilder().withType(ItemType.BOOK).withName(entry.getValue().getAuthor()).build();
+            newMap.put(entry.getKey(), item);
+        });
 
         System.out.println(newMap);
     }

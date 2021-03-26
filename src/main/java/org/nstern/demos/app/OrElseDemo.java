@@ -20,4 +20,10 @@ public class OrElseDemo {
         return item;
     }
 
+    public Item changePriceWithOrElse(Item item, int i) {
+
+        item.setPrice(item.getPrice() + i);
+        return item;
+    }
+
 }
