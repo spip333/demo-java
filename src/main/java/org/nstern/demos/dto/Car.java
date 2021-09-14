@@ -1,34 +1,15 @@
 package org.nstern.demos.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
 
-    Integer code;
     String mark;
     String model;
     Integer price;
     Boolean fun;
-
-
-    public Car() {
-    }
-
-    public Car(int c, String m, String mod) {
-        code = Integer.valueOf(c);
-        mark = m;
-        model = mod;
-    }
-
-    public Car(int c, String m, String mod, Boolean f) {
-        code = Integer.valueOf(c);
-        mark = m;
-        model = mod;
-        fun = f;
-    }
-
-    public Car(int c, String m, String mod, int p) {
-        this(c, m, mod);
-        price = p;
-    }
+    List<String> options = new ArrayList<>();
 
     public Integer getPrice() {
         return price;
@@ -36,14 +17,6 @@ public class Car {
 
     public void setPrice(Integer price) {
         this.price = price;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
     }
 
     public String getMark() {
@@ -62,22 +35,17 @@ public class Car {
         this.model = model;
     }
 
-    public Boolean isFun() {
-        return fun;
-    }
-
-    public void setFun(Boolean fun) {
-        this.fun = fun;
+    public List<String> getOptions() {
+        return options;
     }
 
     @Override
     public String toString() {
-        return new StringBuilder().append("code:" + code + ";")
-                .append("mark:" + mark + ";")
-                .append("model:" + model + ";")
-                .append("price:" + price + ";")
-                .append("fun:" + fun)
-                .toString();
+        return "mark:" + mark
+               + ";" + "model:" + model
+               + ";" + "price:" + price
+               + ";" + "options:" + options
+                ;
     }
 
     @Override
@@ -91,7 +59,7 @@ public class Car {
         if (other == this) {
             return true;
         }
-        if ((getCode() == other.getCode()) && (getMark().equals(other.getMark())) && (getModel().equals(other.getModel()))) {
+        if ((getMark().equals(other.getMark())) && (getModel().equals(other.getModel()))) {
             return true;
         }
         ;
@@ -101,11 +69,6 @@ public class Car {
 
     public static class Builder {
         Car car = new Car();
-
-        public Builder withCode(Integer code) {
-            car.setCode(code);
-            return this;
-        }
 
         public Builder withPrice(Integer price) {
             car.setPrice(price);
@@ -122,8 +85,8 @@ public class Car {
             return this;
         }
 
-        public Builder withIsFun(Boolean fun) {
-            car.setFun(fun);
+        public Builder withOption(String option) {
+            car.options.add(option);
             return this;
         }
 
