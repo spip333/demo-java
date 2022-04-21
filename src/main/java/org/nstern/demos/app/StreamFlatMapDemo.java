@@ -3,7 +3,7 @@ package org.nstern.demos.app;
 import static org.nstern.demos.util.H.p;
 import static org.nstern.demos.util.H.phead;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +21,10 @@ public class StreamFlatMapDemo {
     private static void demo1() {
         phead("demo1");
         List<Car> list = createCarList();
+        Car car = new Car();
+        car.setModel("gt");
+        car.setPrice(222);
+        list.add(car);
         List<String> result = list
                 .stream()
                 .map(Car::getMark)
@@ -29,9 +33,11 @@ public class StreamFlatMapDemo {
     }
 
     private static List<Car> createCarList() {
-        return Arrays.asList(new Car.Builder().withPrice(222222).withMark("Ferrari").build(),
-                new Car.Builder().withPrice(33333).withMark("Ford").build(),
-                new Car.Builder().withPrice(23232).withMark("Toyota").build());
+        List<Car> list = new ArrayList<>();
+        list.add(new Car.Builder().withPrice(1111).withMark("Toyota").build());
+        list.add(new Car.Builder().withPrice(22222).withMark("Ford").build());
+        list.add(new Car.Builder().withPrice(333333).withMark("Ferrari").build());
+        return list;
     }
 
 

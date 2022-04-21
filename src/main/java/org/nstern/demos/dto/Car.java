@@ -8,7 +8,6 @@ public class Car {
     String mark;
     String model;
     Integer price;
-    Boolean fun;
     List<String> options = new ArrayList<>();
 
     public Integer getPrice() {
@@ -62,7 +61,6 @@ public class Car {
         if ((getMark().equals(other.getMark())) && (getModel().equals(other.getModel()))) {
             return true;
         }
-        ;
 
         return super.equals(obj);
     }
