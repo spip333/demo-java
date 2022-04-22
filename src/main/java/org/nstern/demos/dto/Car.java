@@ -5,10 +5,19 @@ import java.util.List;
 
 public class Car {
 
+    Integer code;
     String mark;
     String model;
     Integer price;
     List<String> options = new ArrayList<>();
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
     public Integer getPrice() {
         return price;
@@ -58,7 +67,7 @@ public class Car {
         if (other == this) {
             return true;
         }
-        if ((getMark().equals(other.getMark())) && (getModel().equals(other.getModel()))) {
+        if ((getCode().equals(other.getCode()) && getMark().equals(other.getMark())) && (getModel().equals(other.getModel()))) {
             return true;
         }
 
@@ -68,6 +77,10 @@ public class Car {
     public static class Builder {
         Car car = new Car();
 
+        public Builder withCode(Integer code) {
+            car.setCode(code);
+            return this;
+        }
         public Builder withPrice(Integer price) {
             car.setPrice(price);
             return this;
