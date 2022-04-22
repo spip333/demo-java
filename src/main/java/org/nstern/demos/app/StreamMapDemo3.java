@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.Car;
 
-public class StreamFlatMapDemo2 {
+public class StreamMapDemo3 {
 
 
     public static void main(String[] args) {

@@ -1,8 +1,5 @@
 package org.nstern.demos.app;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +8,7 @@ import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.Car;
 
-public class MapOperationsUsingStreamDemos {
+public class StramMapManipulationsDemos {
 
     public Map<String, LocalDate> transform(List<String> list, LocalDate date) {
 

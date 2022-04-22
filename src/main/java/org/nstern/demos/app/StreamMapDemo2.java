@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.Car;
 
-public class StreamMapDemo {
+public class StreamMapDemo2 {
 
     public static void main(String[] args) {
         phead("Demo Stream map()");

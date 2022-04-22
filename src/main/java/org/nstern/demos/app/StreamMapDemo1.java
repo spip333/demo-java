@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.Car;
 
-public class StreamFlatMapDemo {
+public class StreamMapDemo1 {
 
 
     public static void main(String[] args) {

@@ -15,13 +15,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.nstern.demos.dto.Car;
 
-public class MapOperationsUsingStreamDemosTest {
+public class StramMapManipulationsDemosTest {
 
-    MapOperationsUsingStreamDemos sut;
+    StramMapManipulationsDemos sut;
 
     @BeforeEach
     private void init() {
-        sut = new MapOperationsUsingStreamDemos();
+        sut = new StramMapManipulationsDemos();
     }
 
     @Test
