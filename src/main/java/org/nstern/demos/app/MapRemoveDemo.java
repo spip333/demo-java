@@ -3,7 +3,7 @@ package org.nstern.demos.app;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RemoveFromMapDemo {
+public class MapRemoveDemo {
 
     public static void main(String[] args) {
 
