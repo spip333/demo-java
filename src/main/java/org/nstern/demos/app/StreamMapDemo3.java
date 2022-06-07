@@ -25,6 +25,7 @@ public class StreamMapDemo3 {
         demo3();
         demo4();
         demo5();
+        demo6();
     }
 
     private static void demo1() {
@@ -73,7 +74,7 @@ public class StreamMapDemo3 {
     }
 
     private static void demo5() {
-        phead("demo4");
+        phead("demo5");
         List<Car> list = createCarList();
 
         AtomicInteger counter = new AtomicInteger();
@@ -84,6 +85,17 @@ public class StreamMapDemo3 {
         p("" + result);
     }
 
+    private static void demo6() {
+        phead("demo6");
+        List<Car> list = createCarList();
+
+        List<Car> result = list
+                .stream()
+                .map(car -> car)
+                .collect(Collectors.toList());
+        p("" + result);
+    }
+
     private static List<Car> createCarList() {
         return asList(new Car.Builder().withPrice(222222).withMark("Ferrari").withModel("California").build(),
                 new Car.Builder().withPrice(30000).withMark("Ford").withModel("smax").build(),
@@ -91,7 +103,6 @@ public class StreamMapDemo3 {
                 new Car.Builder().withPrice(11000).withMark("Toyota").withModel("Aygo").build(),
                 new Car.Builder().withPrice(32000).withMark("Toyota").withModel("Prius").build());
     }
-
 
 
 }
