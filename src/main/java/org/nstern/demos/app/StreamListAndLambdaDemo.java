@@ -4,14 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.nstern.demos.dto.MyDto;
+
 public class StreamListAndLambdaDemo {
 
 
     public static void main(String[] args) {
         List<MyDto> list = initList();
-        boolean result1 = list.stream().map(MyDto :: getId).collect(Collectors.toList()).contains(2);
+        boolean result1 = list.stream().map(MyDto::getId).collect(Collectors.toList()).contains(2);
         System.out.println(result1);
-        boolean result2 = list.stream().map(MyDto :: getId).collect(Collectors.toList()).contains(22);
+        boolean result2 = list.stream().map(MyDto::getId).collect(Collectors.toList()).contains(22);
         System.out.println(result2);
     }
 
@@ -30,52 +32,4 @@ public class StreamListAndLambdaDemo {
     }
 }
 
-
-class MyDto {
-    int id;
-    String name;
-    String description;
-    float value;
-    List<MyDto> children;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public float getValue() {
-        return value;
-    }
-
-    public void setValue(float value) {
-        this.value = value;
-    }
-
-    public void setChildren(List<MyDto> children) {
-        this.children = children;
-    }
-
-    public List<MyDto> getChildren() {
-        return children;
-    }
-}
 
