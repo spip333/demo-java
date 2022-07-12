@@ -1,5 +1,6 @@
 package org.nstern.demos.app;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -7,15 +8,15 @@ import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.MyDto;
 
-public class StreamListOfSetsToListOfStringDemo {
+public class StreamFlatmapDemo {
+
 
     public static void main(String[] args) {
-        Set<MyDto> set1 = Set.of(new MyDto(1, "name1"), new MyDto(2, "name2"));
-        Set<MyDto> set2 = Set.of(new MyDto(3, "name3"), new MyDto(4, "name4"));
-        set1.forEach(System.out::println);
-        set2.forEach(System.out::println);
 
-        List<Set<MyDto>> list = List.of(set1, set2);
+        List<MyDto> list1 = Arrays.asList(new MyDto(1, "name1"), new MyDto(2, "name2"));
+        List<MyDto> list2 = Arrays.asList(new MyDto(3, "name3"), new MyDto(4, "name4"));
+        List<List<MyDto>> list = List.of(list1, list2);
+
         list.forEach(System.out::println);
 
         List<MyDto> result = list.stream()
@@ -25,6 +26,6 @@ public class StreamListOfSetsToListOfStringDemo {
         result.forEach(System.out::println);
     }
 
-}
+ }
 
 

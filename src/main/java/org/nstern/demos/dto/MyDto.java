@@ -9,6 +9,14 @@ public class MyDto {
     float value;
     List<MyDto> children;
 
+    public MyDto() {
+    }
+
+    public MyDto(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -50,7 +58,7 @@ public class MyDto {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "id: " + id + ";name:" + name;
     }
 }
