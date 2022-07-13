@@ -35,16 +35,6 @@ public class Baustein {
         children.forEach(child -> child.accept(visitor));
     }
 
-    public int cumulate(){
-        int i = value;
-        children.forEach(child -> add(i, child.value));
-        return i;
-    }
-
-    void add (int a, int b){
-        a = a + b;
-    }
-
     @Override
     public String toString() {
         return "" + id + ":" + value + children.stream().map(Baustein::toString).collect(Collectors.toList());
