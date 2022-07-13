@@ -9,6 +9,7 @@ import org.nstern.visitor.app.Visitor;
 public class Baustein {
     public String id;
     public int value;
+    public int abgabe;
 
     public List<Baustein> children;
 
@@ -19,6 +20,13 @@ public class Baustein {
     public Baustein(String id, int value) {
         this.id = id;
         this.value = value;
+        children = new ArrayList<>();
+    }
+
+    public Baustein(String id, int value, int abgabe) {
+        this.id = id;
+        this.value = value;
+        this.abgabe = abgabe;
         children = new ArrayList<>();
     }
 
