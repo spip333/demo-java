@@ -21,27 +21,30 @@ public class SimpleGenericDemo {
         // won't compile :
         // myList.add(new Object());
 
-
         // this is safe :
         List<Shape> shapeList = new ArrayList<>();
         printAllStrict(shapeList);
         // won't compile : required is a list containing strictly Shapes!
         //  printAllStrict(squareList);
 
+        // this is safe :
+        // printAllTypesOfShape expects a List<? extends Shape> arg, and shapeList is compliant)
         printAllTypesOfShape(shapeList);
-        List<Square> squares = new ArrayList<>();
-        //printAllTyped(squareList); why this doesn't compile?
+
+        // this won't compile :
+        // printAllTyped(squareList);
+        // why doesn't this compile?
         // according to https://docs.oracle.com/javase/tutorial/extra/generics/wildcards.html, it should
         // see also : https://www.baeldung.com/java-generics
 
     }
 
     static void printAllStrict(List<Shape> shapeList) {
-
+        System.out.println("printAllStrict called with List<Shape>");
     }
 
     static void printAllTypesOfShape(List<? extends Shape> shapeList) {
-
+        System.out.println("printAllStrict called with List<? extends Shape>");
     }
 
 
