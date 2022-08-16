@@ -4,6 +4,7 @@ import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.nstern.demos.generics.dto.Circle;
 import org.nstern.demos.generics.dto.Square;
 
 public class SimpleGenericDemo {
@@ -24,6 +25,7 @@ public class SimpleGenericDemo {
         // this is safe :
         List<Shape> shapeList = new ArrayList<>();
         printAllStrict(shapeList);
+
         // won't compile : required is a list containing strictly Shapes!
         //  printAllStrict(squareList);
 
@@ -31,9 +33,8 @@ public class SimpleGenericDemo {
         // printAllTypesOfShape expects a List<? extends Shape> arg, and shapeList is compliant)
         printAllTypesOfShape(shapeList);
 
-        // this won't compile :
-        // printAllTyped(squareList);
-        // why doesn't this compile?
+        // this won't compile , WHY?
+        // printAllTypesOfShape(squareList);
         // according to https://docs.oracle.com/javase/tutorial/extra/generics/wildcards.html, it should
         // see also : https://www.baeldung.com/java-generics
 
