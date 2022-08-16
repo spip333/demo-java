@@ -11,6 +11,8 @@ public class Car {
     Integer price;
     List<String> options = new ArrayList<>();
 
+    Boolean fun;
+
     public Integer getCode() {
         return code;
     }
@@ -46,6 +48,9 @@ public class Car {
     public List<String> getOptions() {
         return options;
     }
+
+    public void setFun(Boolean fun){ this.fun = fun;}
+    public Boolean isFun(){ return fun;}
 
     @Override
     public String toString() {
@@ -98,6 +103,11 @@ public class Car {
 
         public Builder withOption(String option) {
             car.options.add(option);
+            return this;
+        }
+
+        public Builder isFun(Boolean fun) {
+            car.setFun(fun);
             return this;
         }
 
