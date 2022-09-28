@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.Car;
 
-public class StreamCollectToMapDemo {
+public class StreamCollectToMapDemo1 {
 
     public static void main(String[] args) {
 
@@ -15,9 +15,8 @@ public class StreamCollectToMapDemo {
                 new Car.Builder().withCode(2).withMark("Chevrolet").withModel("Corvette").isFun(true).build(),
                 new Car.Builder().withCode(3).withMark("Ford").withModel("cmax").isFun(false).build());
 
-        Map<String, Boolean> cars = carList.stream().collect(Collectors.toMap(Car::getMark, Car::isFun, (car1, car2) -> {
-            return car1;
-        }));
+        Map<String, Boolean> cars = carList.stream()
+                .collect(Collectors.toMap(Car::getMark, Car::isFun, (car1, car2) -> {return car1;}));
 
         System.out.println(cars);
 
