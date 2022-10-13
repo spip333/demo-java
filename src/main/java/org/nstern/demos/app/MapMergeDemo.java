@@ -15,6 +15,26 @@ public class MapMergeDemo {
     public static void main(String[] args) {
 
         // create an HashMap
+        HashMap<String, Integer> mapFinal = new HashMap<>();
+        HashMap<String, Integer> firstMap = new HashMap<>();
+        HashMap<String, Integer> secondMap = new HashMap<>();
+
+        // insert entries to the HashMap
+        firstMap.put("Shoes", 200);
+        firstMap.put("Bag", 300);
+
+        secondMap.put("Pant", 150);
+        secondMap.put("shirt", 150);
+
+        System.out.println("firstMap: " + firstMap);
+        System.out.println("secondMap: " + secondMap);
+
+        mapFinal.putAll(firstMap);
+        System.out.println("mapFinal " + mapFinal);
+        mapFinal.putAll(secondMap);
+        System.out.println("mapFinal " + mapFinal);
+
+        //-------------------------        // create an HashMap
         HashMap<String, Integer> prices = new HashMap<>();
 
         // insert entries to the HashMap
