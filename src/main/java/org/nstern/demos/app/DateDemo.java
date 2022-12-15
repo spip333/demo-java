@@ -5,6 +5,7 @@ import static org.nstern.demos.util.H.p;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.IsoFields;
 
 public class DateDemo {
@@ -49,6 +50,22 @@ public class DateDemo {
         System.out.println(d1  + " is in quarter : " + q1);
         System.out.println(d2  + " is in quarter : " + q2);
         System.out.println(d3  + " is in quarter : " + q3);
+
+        LocalDateTime start = LocalDateTime.of(1970, 1, 1, 0,0,0);
+        LocalDateTime now = LocalDateTime.now();
+        String diff = String.valueOf(ChronoUnit.MILLIS.between(start, now));
+
+        int x = now.getNano();
+        System.out.println("start  : "  + start);
+        System.out.println("...  : "  + LocalDateTime.MIN);
+        System.out.println("now  : "  + now);
+        System.out.println("x  : "  + x);
+        System.out.println("diff  : "  + diff);
+
+        System.out.println("System.currentTimeMillis : " + System.currentTimeMillis());
+
+//        now.atStartOfDay(gmt).toEpochSecond()(now).toEpochMilli();
+
 
     }
 }
