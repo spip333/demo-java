@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.nstern.demos.StramMapManipulationsDemos;
 import org.nstern.demos.dto.Car;
 
 public class StramMapManipulationsDemosTest {

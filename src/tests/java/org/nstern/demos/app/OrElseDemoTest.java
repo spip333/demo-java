@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
+import org.nstern.demos.OrElseDemo;
 import org.nstern.demos.dto.Item;
 import org.nstern.demos.dto.ItemType;
 import org.nstern.demos.exceptions.DemoBusinessException;
