@@ -1,7 +1,6 @@
 package org.nstern.demos.app;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +16,7 @@ public class ListEqualsTest {
         List<String> list2 = Arrays.asList("Bern", "Basel");
 
         // then
-        assertEquals(list1, list2);
+        assertThat(list1).isEqualTo(list2);
 
     }
 
@@ -28,7 +27,7 @@ public class ListEqualsTest {
         List<String> list2 = Arrays.asList("Bern", "Fribourg");
 
         // then
-        assertNotEquals(list1, list2);
+        assertThat(list1).isNotEqualTo(list2);
 
     }
 
@@ -39,7 +38,7 @@ public class ListEqualsTest {
         List<String> list2 = Arrays.asList("Basel", "Bern");
 
         // then
-        assertNotEquals(list1, list2);
+        assertThat(list1).isNotEqualTo(list2);
 
     }
 }

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class StringPatternValidationDemo {
 
-    static boolean check(Pattern p, String s) {
+    public static boolean check(Pattern p, String s) {
 
         Matcher m = p.matcher(s);
         if (m.matches()) {
