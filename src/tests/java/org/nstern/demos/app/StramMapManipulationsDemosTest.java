@@ -1,8 +1,8 @@
 package org.nstern.demos.app;
 
 import static java.util.Arrays.asList;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class StramMapManipulationsDemosTest {
         Map<String, LocalDate> result = sut.transform(stringList, date);
 
         // then
-        assertThat(result.keySet().containsAll(stringList));
+        assertTrue(result.keySet().containsAll(stringList));
 
         stringList.forEach(x -> assertEquals(date, result.get(x)));
     }
@@ -144,7 +144,7 @@ public class StramMapManipulationsDemosTest {
                 .stream()
                 .reduce("", (partialString, element) -> partialString + element);
 
-        assertThat(result).isEqualTo("abcde");
+        assertEquals(result , "abcde");
     }
 
     //@formatter:off
