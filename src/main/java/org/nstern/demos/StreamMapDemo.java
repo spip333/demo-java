@@ -10,7 +10,6 @@ import static org.nstern.demos.util.H.phead;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 import org.nstern.demos.dto.Car;
 
@@ -33,21 +32,16 @@ public class StreamMapDemo {
         phead("demo1");
         List<Car> list = createCarList();
 
-        Map result = list
-                .stream()
-                .collect(groupingBy(car -> car.getMark(), toList()));
-        p("" + result);
+        Map<String, List<Car>> result = list.stream().collect(groupingBy(Car::getMark, toList()));
+        p(String.valueOf(result));
     }
 
     private static void demo2() {
         phead("demo2");
         List<Car> list = createCarList();
 
-        List<String> result1 = list
-                .stream()
-                .map(Car::getMark)
-                .collect(toList());
-        p("" + result1);
+        List<String> result1 = list.stream().map(Car::getMark).toList();
+        p(String.valueOf(result1));
     }
 
     private static void demo3() {
@@ -56,10 +50,8 @@ public class StreamMapDemo {
 
         AtomicInteger counter = new AtomicInteger();
 
-        Map<Integer, String> result = list
-                .stream()
-                .collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
-        p("" + result);
+        Map<Integer, String> result = list.stream().collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
+        p(String.valueOf(result));
     }
 
     private static void demo4() {
@@ -68,10 +60,8 @@ public class StreamMapDemo {
 
         AtomicInteger counter = new AtomicInteger();
 
-        Map<Integer, String> result = list
-                .stream()
-                .collect(toMap(car -> counter.getAndIncrement(), car -> car.getMark()));
-        p("" + result);
+        Map<Integer, String> result = list.stream().collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
+        p(String.valueOf(result));
     }
 
     private static void demo5() {
@@ -80,21 +70,17 @@ public class StreamMapDemo {
 
         AtomicInteger counter = new AtomicInteger();
 
-        Map<Integer, List<String>> result = list
-                .stream()
-                .collect(toMap(car -> counter.getAndIncrement(), car -> asList(car.getMark(), car.getModel())));
-        p("" + result);
+        Map<Integer, List<String>> result =
+                list.stream().collect(toMap(car -> counter.getAndIncrement(), car -> asList(car.getMark(), car.getModel())));
+        p(String.valueOf(result));
     }
 
     private static void demo6() {
         phead("demo6");
         List<Car> list = createCarList();
 
-        List<Car> result = list
-                .stream()
-                .map(car -> car)
-                .collect(Collectors.toList());
-        p("" + result);
+        List<Car> result = list.stream().map(car -> car).toList();
+        p(String.valueOf(result));
     }
 
     private static void demo7() {
@@ -104,11 +90,8 @@ public class StreamMapDemo {
         car.setModel("gt");
         car.setPrice(222);
         list.add(car);
-        List<String> result = list
-                .stream()
-                .map(Car::getMark)
-                .collect(Collectors.toList());
-        p("" + result);
+        List<String> result = list.stream().map(Car::getMark).toList();
+        p(String.valueOf(result));
     }
 
     private static List<Car> createCarList() {
@@ -118,14 +101,4 @@ public class StreamMapDemo {
                 new Car.Builder().withPrice(11000).withMark("Toyota").withModel("Aygo").build(),
                 new Car.Builder().withPrice(32000).withMark("Toyota").withModel("Prius").build());
     }
-
-    private static Map<Car, Integer> createMap() {
-        return Map.of(new Car.Builder().withMark("Ferrari").withModel("California").build(), 185000,
-                new Car.Builder().withMark("Ford").withModel("smax").build(), 48000,
-                new Car.Builder().withMark("Ford").withModel("cmax").build(), 32000,
-                new Car.Builder().withMark("Toyota").withModel("Aygo").build(), 11800,
-                new Car.Builder().withMark("Toyota").withModel("Prius").build(), 32000);
-    }
-
-
 }
