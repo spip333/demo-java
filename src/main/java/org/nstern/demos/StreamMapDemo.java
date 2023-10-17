@@ -86,10 +86,6 @@ public class StreamMapDemo {
     private static void demo7() {
         phead("demo7");
         List<Car> list = createCarList();
-        Car car = new Car();
-        car.setModel("gt");
-        car.setPrice(222);
-        list.add(car);
         List<String> result = list.stream().map(Car::getMark).toList();
         p(String.valueOf(result));
     }

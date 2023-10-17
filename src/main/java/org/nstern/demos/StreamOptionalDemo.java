@@ -15,6 +15,10 @@ public class StreamOptionalDemo {
         List<Car> carListWithOneElement = Collections.singletonList(
                 new Car.Builder().withCode(1).withMark("Ferrari").withModel("GT8").build()
         );
+        List<Car> carListWithTwoElements = List.of(
+                new Car.Builder().withCode(1).withMark("Ferrari").withModel("GT8").build(),
+                new Car.Builder().withCode(2).withMark("Ford").withModel("GT40").build()
+        );
 
         List<Car> carListWithNoElement = Collections.emptyList();
         List<Car> carListNull = null;
@@ -25,6 +29,10 @@ public class StreamOptionalDemo {
         if (carOpt1.isPresent()) {
             p("found one car : " + carOpt1.get() + " in list carListWithOnelement.");
         }
+
+        p("evaluating list with two elements: ");
+        carListWithTwoElements.stream().filter(x -> x.getMark().equals("Ford")).findAny()
+                .ifPresent(y -> y.getMark().equals("Ford"));
 
         p("evaluating list with no element: ");
         Optional<Car> carOpt2 = carListWithNoElement.stream().findAny();

@@ -26,4 +26,7 @@
     </orderEntry>
     <orderEntry type="library" scope="TEST" name="hamcrest" level="project" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="276b9ce3-53bb-4557-ae2b-31a9039e4944" />
+  </component>
 </module>
