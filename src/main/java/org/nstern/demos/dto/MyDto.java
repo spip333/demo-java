@@ -61,4 +61,38 @@ public class MyDto {
     public String toString() {
         return "id: " + id + ";name:" + name;
     }
+
+    public static class DtoBuilder{
+
+        MyDto myDto = new MyDto();
+
+        public DtoBuilder withId(int id){
+            myDto.setId(id);
+            return this;
+        }
+
+        public DtoBuilder withName(String name){
+            myDto.setName(name);
+            return this;
+        }
+
+        public DtoBuilder withDescription(String description){
+            myDto.setDescription(description);
+            return this;
+        }
+                public DtoBuilder withValue(float value){
+            myDto.setValue(value);
+            return this;
+        }
+
+        public DtoBuilder withChildren(List<MyDto> children) {
+            myDto.setChildren(children);
+            return this;
+        }
+
+        public MyDto build(){
+            return myDto;
+        }
+
+    }
 }

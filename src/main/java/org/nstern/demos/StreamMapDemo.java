@@ -4,20 +4,24 @@ import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static org.nstern.demos.util.H.p;
-import static org.nstern.demos.util.H.phead;
+import static org.nstern.demos.util.DataUtil.createSampleCarList;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.nstern.demos.dto.Car;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class StreamMapDemo {
 
+    private static final Logger log = LoggerFactory.getLogger(StreamMapDemo.class);
+
+    private static final List<Car> carList = createSampleCarList();
+
 
     public static void main(String[] args) {
-        phead("Demo Stream map()");
         demo1();
         demo2();
         demo3();
@@ -29,72 +33,62 @@ public class StreamMapDemo {
 
 
     private static void demo1() {
-        phead("demo1");
-        List<Car> list = createCarList();
+        log.info("demo1");
 
-        Map<String, List<Car>> result = list.stream().collect(groupingBy(Car::getMark, toList()));
-        p(String.valueOf(result));
+        Map<String, List<Car>> result = carList.stream().collect(groupingBy(Car::getMark, toList()));
+        printResult(result);
     }
 
     private static void demo2() {
-        phead("demo2");
-        List<Car> list = createCarList();
+        log.info("demo2");
 
-        List<String> result1 = list.stream().map(Car::getMark).toList();
-        p(String.valueOf(result1));
+        List<String> result = carList.stream().map(Car::getMark).toList();
+        printResult(result);
     }
 
     private static void demo3() {
-        phead("demo3");
-        List<Car> list = createCarList();
+        log.info("demo3");
 
         AtomicInteger counter = new AtomicInteger();
 
-        Map<Integer, String> result = list.stream().collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
-        p(String.valueOf(result));
+        Map<Integer, String> result = carList.stream().collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
+        printResult(result);
     }
 
     private static void demo4() {
-        phead("demo4");
-        List<Car> list = createCarList();
+        log.info("demo4");
 
         AtomicInteger counter = new AtomicInteger();
 
-        Map<Integer, String> result = list.stream().collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
-        p(String.valueOf(result));
+        Map<Integer, String> result = carList.stream().collect(toMap(car -> counter.getAndIncrement(), Car::getMark));
+        printResult(result);
     }
 
     private static void demo5() {
-        phead("demo5");
-        List<Car> list = createCarList();
-
+        log.info("demo5");
         AtomicInteger counter = new AtomicInteger();
 
         Map<Integer, List<String>> result =
-                list.stream().collect(toMap(car -> counter.getAndIncrement(), car -> asList(car.getMark(), car.getModel())));
-        p(String.valueOf(result));
+                carList.stream().collect(toMap(car -> counter.getAndIncrement(), car -> asList(car.getMark(), car.getModel())));
+        printResult(result);
     }
 
     private static void demo6() {
-        phead("demo6");
-        List<Car> list = createCarList();
-
-        List<Car> result = list.stream().map(car -> car).toList();
-        p(String.valueOf(result));
+        log.info("demo6");
+        List<Car> result = carList.stream().map(car -> car).toList();
+        printResult(result);
     }
 
     private static void demo7() {
-        phead("demo7");
-        List<Car> list = createCarList();
-        List<String> result = list.stream().map(Car::getMark).toList();
-        p(String.valueOf(result));
+        log.info("demo7");
+        List<String> result = carList.stream().map(Car::getMark).toList();
+        printResult(result);
     }
 
-    private static List<Car> createCarList() {
-        return asList(new Car.Builder().withPrice(222222).withMark("Ferrari").withModel("California").build(),
-                new Car.Builder().withPrice(30000).withMark("Ford").withModel("smax").build(),
-                new Car.Builder().withPrice(25000).withMark("Ford").withModel("cmax").build(),
-                new Car.Builder().withPrice(11000).withMark("Toyota").withModel("Aygo").build(),
-                new Car.Builder().withPrice(32000).withMark("Toyota").withModel("Prius").build());
+    private static void printResult(Object result) {
+        if (log.isInfoEnabled()) {
+            log.info(String.valueOf(result));
+        }
     }
+
 }
