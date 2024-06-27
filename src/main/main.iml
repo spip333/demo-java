@@ -7,11 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="assertj.core" level="project" />
-    <orderEntry type="library" name="slf4j-api-2.0.7" level="application" />
-    <orderEntry type="library" name="slf4j-simple-2.0.7" level="application" />
-  </component>
-  <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="46b9b819-3d9f-4e76-ab99-c1954801b710" />
+    <orderEntry type="library" name="assertj.core" level="application" />
+    <orderEntry type="library" name="slf4j.simple" level="project" />
   </component>
 </module>
